@@ -36,5 +36,22 @@ Now Super Computers are realted to WSC in the sense that they are just as expens
 
 ### Classes of Parallelism and Parallel Architectures 
 
---- Come back to at home. 
+The primary concern is that of being energy and cost with the constraits of all our computers (PMD, Desktop computing, Servers, WSC) there are essetially two types of parallelism... 
+
+1) Data level Parallelism 
+2) Task level Parallelism
+
+So Computer hardware tries to exploit these two types of parallelism in four ways 
+
+1) Instruction level parallelism 
+2) Vector architectures, GPUs, multimedia instruction sets
+3) Thread-level parallelism
+4) Request-level parallelism 
+
+So we can take each of these and from out lovely parallel and distributed systems class we can classify them to be the following 
+
+1) SISD --> Uniprocessors
+2) SIMD --> Same insturctions but multiple processors
+3) MISD --> No commerical multiprocessor yet 
+4) MIMD --> MIMD is more flexible as processor fetches its own instruction and operates it's own data, unfortuatnly it's more expensive compared to it's counter part SIMD.
 
