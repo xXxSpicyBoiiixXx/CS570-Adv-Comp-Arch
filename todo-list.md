@@ -10,3 +10,5 @@
 ### Week 2 
 ! Homework -- Find a processor with a research reading above 2010 possibly Nahelm? 
 
+### Week 3 
+! Homework -- Write project proposal
