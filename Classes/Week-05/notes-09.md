@@ -89,5 +89,28 @@ Concurrenct can be improved by locality
 ? Out of box thinking: do it
 - Hermes, LABIOS 
 
+### In-Memory Computation 
+
+1) Push from Technology 
+- Controllers close to DRAM
+- Industry open to new memory architectures 
+
+2) Pull from System and Applications 
+- Data access is a major system and application bottleneck 
+- Systems are energy limited
+- Data movement much more eneter 
+
+### TWo appraoches to PIM 
+1) Minimal change DRAM to enable simple yet powerful computation primitives 
+2) Exploit the control logic in 3D stacked memory to enable more comprehensive computaiton near memory.
+
+### Elastic Computing 
+1) Elastic computing is a concept in cloud computng.... Elastic Computing Atchitecture.
+
+### Pace Data Transfer
+1) Architecture Design and Configuration 
+2) System Design and Optimization
+3) Algorithm Design and Optimization 
+
 
  
