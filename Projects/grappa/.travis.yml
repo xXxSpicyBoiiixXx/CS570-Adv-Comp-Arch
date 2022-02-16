@@ -1,0 +1,79 @@
+sudo: false
+
+language: cpp
+
+compiler:
+  - clang
+
+addons:
+  apt:
+    sources:
+    - boost-latest
+    packages:
+    - libboost-date-time1.55-dev
+    - libboost-exception1.55-dev
+    - libboost-filesystem1.55-dev
+    - libboost-iostreams1.55-dev
+    - libboost-math1.55-dev
+    - libboost-random1.55-dev
+    - libboost-regex1.55-dev
+    - libboost-serialization1.55-dev
+    - libboost-signals1.55-dev
+    - libboost-system1.55-dev
+    - libboost-test1.55-dev
+    - libboost-timer1.55-dev
+
+cache:
+  apt: true
+  directories:
+    - $HOME/installed
+    
+install:
+  - |
+    if [ ! -d "$HOME/installed/bin" ]; then
+      set -e
+      ### create a place to hold our local dependences
+      mkdir -p $HOME/installed
+      ### get a modern version of CMake
+      wget --no-check-certificate -q http://www.cmake.org/files/v3.2/cmake-3.2.3-Linux-x86_64.tar.gz;
+      tar xzf cmake-3.2.3-Linux-x86_64.tar.gz  -C $HOME/installed --strip-components=1
+      ### get a modern version of MPI
+      wget --no-check-certificate -q http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
+      tar xzf mpich-3.2.tar.gz
+      (cd mpich-3.2 && ./configure --disable-fortran --prefix=$HOME/installed && make -j2 && make install)
+    else
+      echo 'Using cached dependences.'
+    fi
+  
+before_script:
+  - export PATH="$HOME/installed/bin:$PATH"
+  
+script:
+  - ./configure
+  - (cd build/Make+Release && make VERBOSE=1 -j2 check-all-pass-compile-only)
+
+after_success:
+  ### fire off web documentation build if this change modified master
+  - >
+    echo Pull request: ${TRAVIS_PULL_REQUEST};
+    echo Branch: ${TRAVIS_BRANCH};
+    [[ "${TRAVIS_PULL_REQUEST}" = "false" && "${TRAVIS_BRANCH}" = "master" ]] &&
+    curl -v -s -X POST
+    -H "Content-Type: application/json"
+    -H "Accept: application/json"
+    -H "Travis-API-Version: 3"
+    -H "Authorization: token ${TRAVISCI_TOKEN}"
+    -d '{ "request": { "branch": "master" } }'
+    https://api.travis-ci.org/repo/uwsampa%2Fgrappa-doxygen/requests
+
+branches:
+  only:
+    - master
+
+notifications:
+  irc:
+    channels: "chat.freenode.net#grappa.io"
+    on_success: change
+    on_failure: always
+  email:
+    - grappa-dev@cs.washington.edu
