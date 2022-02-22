@@ -1,0 +1,19 @@
+# started on Tue Feb 22 15:04:34 2022
+
+
+ Performance counter stats for './matrix-multi':
+
+                 0      fp_comp_ops_exe.sse_packed_single:u #     0.00 GFLOPs                   (66.64%)
+                 0      fp_comp_ops_exe.sse_scalar_double:u                                     (66.73%)
+                 0      simd_fp_256.packed_double:u                                     (66.73%)
+                 0      fp_comp_ops_exe.sse_packed_double:u                                     (66.73%)
+                 0      fp_comp_ops_exe.sse_scalar_single:u                                     (66.63%)
+                 0      simd_fp_256.packed_single:u                                     (66.53%)
+     1,695,930,249 ns   duration_time:u                                             
+
+       1.695930249 seconds time elapsed
+
+       1.692402000 seconds user
+       0.000000000 seconds sys
+
+

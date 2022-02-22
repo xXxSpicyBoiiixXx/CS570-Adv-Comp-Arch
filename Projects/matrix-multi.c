@@ -1,27 +1,28 @@
 #include<stdio.h>
 #include<unistd.h>
 #include<stdlib.h>
-#define MAX 4 
+#define MAX 10000 
 
-int main()
+float main()
 {
  
-    int matA[MAX][MAX];
-    int matB[MAX][MAX];
+    double matA[MAX][MAX];
+    double matB[MAX][MAX];
      
      
-    int r1=MAX,c1=MAX,r2=MAX,c2=MAX,i,j,k;
- 
+    int r1=MAX,c1=MAX,r2=MAX,c2=MAX;
+    int i, j, k; 
  
     // Generating random values in matA
     for (i = 0; i < r1; i++)
             for (j = 0; j < c1; j++)
-                   matA[i][j] = rand() % 10;
+                  matA[i][j] = (double)rand() / (double)10.0;
+    
            
         // Generating random values in matB
     for (i = 0; i < r1; i++)
             for (j = 0; j < c1; j++)
-                   matB[i][j] = rand() % 10;
+                   matB[i][j] = (double)rand() / (double)10.0;
     
 /*    // Displaying matA        
     for (i = 0; i < r1; i++){
@@ -38,15 +39,15 @@ int main()
     }
      
   */   
-    int max = r1*c2;
+    double max = r1*c2;
      
      
-    int count = 0;
-    int* data = NULL;
+    double count = 0;
+    double* data = NULL;
     for (i = 0; i < r1; i++)
         for (j = 0; j < c2; j++)
                {
-            data = (int *)malloc((20)*sizeof(int));
+            data = (double *)malloc((20)*sizeof(double));
             data[0] = c1;
      
             for (k = 0; k < c1; k++)
