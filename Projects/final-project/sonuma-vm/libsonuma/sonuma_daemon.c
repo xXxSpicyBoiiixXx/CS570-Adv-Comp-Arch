@@ -32,8 +32,8 @@
 /*
  *  SoftRMC-specific extensions for libsonuma
  */
-
-#include <malloc.h>
+#include <stdlib.h>
+#include <malloc/malloc.h>
 #include <assert.h>
 #include <sys/mman.h>
 #include <sys/ioctl.h>
