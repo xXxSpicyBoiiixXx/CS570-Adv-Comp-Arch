@@ -1,0 +1,19 @@
+# started on Tue Feb 22 18:33:01 2022
+
+
+ Performance counter stats for './float':
+
+                 0      fp_comp_ops_exe.sse_packed_single:u #     0.00 GFLOPs                   (40.11%)
+                 0      fp_comp_ops_exe.sse_scalar_double:u                                     (67.16%)
+                 0      simd_fp_256.packed_double:u                                     (83.36%)
+                 0      fp_comp_ops_exe.sse_packed_double:u                                   
+                 0      fp_comp_ops_exe.sse_scalar_single:u                                     (76.53%)
+                 0      simd_fp_256.packed_single:u                                     (32.84%)
+        55,459,437 ns   duration_time:u                                             
+
+       0.055459437 seconds time elapsed
+
+       0.003717000 seconds user
+       0.003729000 seconds sys
+
+

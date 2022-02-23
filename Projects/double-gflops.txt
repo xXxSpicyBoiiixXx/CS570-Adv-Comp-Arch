@@ -1,0 +1,19 @@
+# started on Tue Feb 22 18:32:52 2022
+
+
+ Performance counter stats for './double':
+
+                 0      fp_comp_ops_exe.sse_packed_single:u #     0.00 GFLOPs                   (49.84%)
+            20,152      fp_comp_ops_exe.sse_scalar_double:u                                   
+                 0      simd_fp_256.packed_double:u                                   
+         1,053,466      fp_comp_ops_exe.sse_packed_double:u                                   
+                 0      fp_comp_ops_exe.sse_scalar_single:u                                     (50.16%)
+     <not counted>      simd_fp_256.packed_single:u                                     (0.00%)
+        58,491,198 ns   duration_time:u                                             
+
+       0.058491198 seconds time elapsed
+
+       0.007005000 seconds user
+       0.000000000 seconds sys
+
+
