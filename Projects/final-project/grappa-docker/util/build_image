@@ -1,0 +1,9 @@
+#!/bin/bash
+#################################################################
+# Build the 'grappa' image and publish it to the docker registry
+#################################################################
+DIR="${BASH_SOURCE%/*}"
+
+docker build -t uwsampa/grappa --rm=true $DIR/..
+
+docker push uwsampa/grappa
