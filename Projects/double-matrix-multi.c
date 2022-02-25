@@ -2,7 +2,7 @@
 #include<unistd.h>
 #include<stdlib.h>
 
-#define MAX 100 
+#define MAX 1000 
 
 double main()
 {
