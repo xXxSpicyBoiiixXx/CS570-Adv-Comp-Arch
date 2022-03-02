@@ -31,9 +31,19 @@
 
 MODULENAME      := rmc
 
-KDIR_sun	:= /lib/modules/$(shell uname -r)/build
+#KDIR_sun	:= /lib/modules/$(shell uname -r)/build
 
-ccflags-y      := -I/lib/modules/$(shell uname -r)/build/arch/x86/include/asm -I/lib/modules/$(shell uname -r)/build/include -I/lib/modules/$(shell uname -r)/build/arch/x86/include/asm -I/lib/modules/$(shell uname -r)/build/include/uapi/linux
+#ccflags-y      := -I/lib/modules/$(shell uname -r)/build/arch/x86/include/asm -I/lib/modules/$(shell uname -r)/build/include -I/lib/modules/$(shell uname -r)/build/arch/x86/include/asm -I/lib/modules/$(shell uname -r)/build/include/uapi/linux
+
+KDIR_sun	:= /home/mali54/CS570-Adv-Comp-Arch/Projects/final-project/linux-4.9.303
+
+ARCH_KDIR := $(KDIR_sun)/arch/x86/include/asm
+GEN_KDIR := $(KDIR_sun)/include
+
+	
+#ccflags-y      := -I../../linux-4.9.303/build/arch/x86/include/asm -I../../linux-4.9.303/build/include -I../../linux-4.9.303/build/arch/x86/include/asm -I../../linux-4.9.303/build/include/uapi/linux
+
+ccflags-y := -I$(ARCH_KDIR) -I$(GEN_KDIR) -I$(GEN_KDIR)/uapi/linux
 
 PWD := $(shell pwd)
 
