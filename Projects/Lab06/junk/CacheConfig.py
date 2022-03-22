@@ -114,23 +114,16 @@ def config_cache(options, system):
     if options.l2cache and options.elastic_trace_en:
         fatal("When elastic trace is enabled, do not configure L2 caches.")
 
-    if options.l2cache and options.l3cache:
+    if options.l2cache:
         # Provide a clock for the L2 and the L1-to-L2 bus here as they
         # are not connected using addTwoLevelCacheHierarchy. Use the
         # same clock as the CPUs.
         system.l2 = l2_cache_class(clk_domain=system.cpu_clk_domain,
                                    **_get_cache_opts('l2', options))
-        system.l3 = l3_cache_class(clk_domain=system.cpu_clk_domain,
-                                   **_get_cache_opts('l3', options))
 
         system.tol2bus = L2XBar(clk_domain = system.cpu_clk_domain)
-        system.tol3bus = L3XBar(clk_domain = system.cpu_clk_domain)
-
         system.l2.cpu_side = system.tol2bus.mem_side_ports
-        system.l2.mem_side = system.tol3bus.cpu_side_ports
-
-        system.l3.cpu_side = system.tol3bus.mem_side_ports
-        system.l3.mem_side = system.membus.cpu_side_ports
+        system.l2.mem_side = system.membus.cpu_side_ports
 
     if options.memchecker:
         system.memchecker = MemChecker()
@@ -139,7 +132,7 @@ def config_cache(options, system):
         if options.caches:
             icache = icache_class(**_get_cache_opts('l1i', options))
             dcache = dcache_class(**_get_cache_opts('l1d', options))
-            
+
             # If we have a walker cache specified, instantiate two
             # instances here
             if walk_cache_class:
@@ -168,7 +161,6 @@ def config_cache(options, system):
             # from the CPU in question
             system.cpu[i].addPrivateSplitL1Caches(icache, dcache,
                                                   iwalkcache, dwalkcache)
-            
 
             if options.memchecker:
                 # The mem_side ports of the caches haven't been connected yet.

@@ -1,0 +1,3 @@
+1 Core: system.l3.overallMissRate::total             0.354660                       # miss rate for overall accesses (Ratio)
+2 Core: system.l3.overallMissRate::total             0.440317                       # miss rate for overall accesses (Ratio)
+4 Core: system.l3.overallMissRate::total             0.594451                       # miss rate for overall accesses (Ratio)

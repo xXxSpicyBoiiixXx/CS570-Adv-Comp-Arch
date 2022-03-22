@@ -78,7 +78,7 @@ class L3Cache(Cache):
     response_latency = 32
     mshrs = 32
     tgts_per_mshr = 24
-    write_buffers = 16
+    write_buffer = 16
 
 class IOCache(Cache):
     assoc = 8

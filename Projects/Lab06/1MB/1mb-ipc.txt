@@ -1,0 +1,14 @@
+L3 Size: 1MB 
+
+Core Count: 1
+system.cpu.ipc                               1.060636                       # IPC: Instructions Per Cycle ((Count/Cycle))
+
+Core Count: 2 
+system.cpu0.ipc                              0.946640                       # IPC: Instructions Per Cycle ((Count/Cycle))
+system.cpu1.ipc                              0.952353                       # IPC: Instructions Per Cycle ((Count/Cycle))
+
+Core Count: 4
+system.cpu0.ipc                              0.871003                       # IPC: Instructions Per Cycle ((Count/Cycle))
+system.cpu1.ipc                              0.872363                       # IPC: Instructions Per Cycle ((Count/Cycle))
+system.cpu2.ipc                              0.872050                       # IPC: Instructions Per Cycle ((Count/Cycle))
+system.cpu3.ipc                              0.872688                       # IPC: Instructions Per Cycle ((Count/Cycle))
