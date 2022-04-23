@@ -33,13 +33,17 @@
  *  Remote memory mapper for the Xen hypervisor
  */
 
-#include <xen/evtchn.h>
 
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/mm.h>
 #include <linux/genhd.h>
+
+#include <xen/xen.h>
+
+typedef uint16_t domid_t;
+#include <xen/evtchn.h>
 
 #include <xen/hypercall.h>
 #include <xen/evtchn.h>
@@ -64,6 +68,7 @@
 #include <linux/wait.h>
 #include <linux/timer.h>
 #include <linux/spinlock.h>
+#include <linux/vmalloc.h>
 
 #include "mr_alloc.h"
 

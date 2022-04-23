@@ -35,7 +35,7 @@ MODULENAME      := rmc
 
 #ccflags-y      := -I/lib/modules/$(shell uname -r)/build/arch/x86/include/asm -I/lib/modules/$(shell uname -r)/build/include -I/lib/modules/$(shell uname -r)/build/arch/x86/include/asm -I/lib/modules/$(shell uname -r)/build/include/uapi/linux
 
-KDIR_sun	:= /home/mali54/CS570-Adv-Comp-Arch/Projects/final-project/linux-4.9.303
+KDIR_sun	:= /home/debian/CS570-Adv-Comp-Arch/Projects/final-project/linux-4.3.1
 
 ARCH_KDIR := $(KDIR_sun)/arch/x86/include/asm
 GEN_KDIR := $(KDIR_sun)/include

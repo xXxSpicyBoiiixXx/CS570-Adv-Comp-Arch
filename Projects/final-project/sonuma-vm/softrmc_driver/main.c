@@ -39,7 +39,11 @@
 #include <linux/mm.h>
 #include <linux/genhd.h>
 
+#include <xen/xen.h>
 #include <xen/hypercall.h>
+#ifndef __XEN_PUBLIC_XEN_H__
+typedef uint16_t domid_t;
+#endif
 #include <xen/evtchn.h>
 #include <xen/xenbus.h>
 #include <xen/evtchn.h>
