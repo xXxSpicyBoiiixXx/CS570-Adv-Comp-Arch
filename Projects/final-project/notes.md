@@ -7,6 +7,8 @@ Make sure the .config file has Xen hypervisor configurations
 Also changed the CONFIG_SYSTEM_TRUSTED_KEY = ""
 
 changed makefile and added this to the KBUILD_CFLAGS and added -fno-pie
+Look here for the patch on the make file to know exactly where.
+https://lists.ubuntu.com/archives/kernel-team/2016-May/077178.html
 
 You need to add some changes for older kernel models. 
 -- Added cases for R_X86_64_PLT32
