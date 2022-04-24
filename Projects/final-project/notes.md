@@ -27,3 +27,6 @@ You need to add some changes for older kernel models.
     
 For Kernel 4.9.1 you have to add this for the clock time in the make file. 
 http://lists.infradead.org/pipermail/linux-arm-kernel/2016-October/461597.html
+
+For secclass_map error 
+https://mudongliang.github.io/2021/01/20/error-new-address-family-defined-please-update-secclass_map.html
