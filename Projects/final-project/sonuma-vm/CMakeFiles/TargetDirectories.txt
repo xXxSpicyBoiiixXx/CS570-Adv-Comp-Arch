@@ -1,0 +1,5 @@
+/home/debian/CS570-Adv-Comp-Arch/Projects/final-project/sonuma-vm/CMakeFiles/rebuild_cache.dir
+/home/debian/CS570-Adv-Comp-Arch/Projects/final-project/sonuma-vm/CMakeFiles/edit_cache.dir
+/home/debian/CS570-Adv-Comp-Arch/Projects/final-project/sonuma-vm/CMakeFiles/rmcd.dir
+/home/debian/CS570-Adv-Comp-Arch/Projects/final-project/sonuma-vm/CMakeFiles/rmc.ko.dir
+/home/debian/CS570-Adv-Comp-Arch/Projects/final-project/sonuma-vm/CMakeFiles/sonuma.dir

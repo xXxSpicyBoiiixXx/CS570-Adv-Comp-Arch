@@ -1,0 +1,1 @@
+g++ -std=c++14 -Wall -Wextra -pedantic -Wno-unused-function -march=native -Wno-unused-parameter -Wno-format -g -fPIC -rdynamic CMakeFiles/rmcd.dir/softrmc_daemon/rmcd.cpp.o CMakeFiles/rmcd.dir/softrmc_daemon/son_msg.cpp.o -o rmcd 

@@ -33,24 +33,21 @@ MODULENAME      := rmc
 
 #KDIR_sun	:= /lib/modules/$(shell uname -r)/build
 
+KDIR_sun	:= /home/debian/CS570-Adv-Comp-Arch/Projects/final-project/linux-4.12.1
+
+ARCH_KDIR	:= $(KDIR_sun)/arch/x86/include/asm
+GEN_KDIR	:= $(KDIR_sum)/include
+
+ccflags-y	:= -I$(ARCH_KDIR) -I$(GEN_KDIR) -I$(GEN_KDIR)/uapi/linux
+
 #ccflags-y      := -I/lib/modules/$(shell uname -r)/build/arch/x86/include/asm -I/lib/modules/$(shell uname -r)/build/include -I/lib/modules/$(shell uname -r)/build/arch/x86/include/asm -I/lib/modules/$(shell uname -r)/build/include/uapi/linux
-
-KDIR_sun	:= /home/debian/CS570-Adv-Comp-Arch/Projects/final-project/linux-4.3.1
-
-ARCH_KDIR := $(KDIR_sun)/arch/x86/include/asm
-GEN_KDIR := $(KDIR_sun)/include
-
-	
-#ccflags-y      := -I../../linux-4.9.303/build/arch/x86/include/asm -I../../linux-4.9.303/build/include -I../../linux-4.9.303/build/arch/x86/include/asm -I../../linux-4.9.303/build/include/uapi/linux
-
-ccflags-y := -I$(ARCH_KDIR) -I$(GEN_KDIR) -I$(GEN_KDIR)/uapi/linux
 
 PWD := $(shell pwd)
 
 ifeq ($(KERNELRELEASE),)
 all:
 	$(MAKE) MORE_FLAGS='-finline-functions gnu_inline' CFLAGS="-finline-functions" $(ccflags-y) -C $(KDIR_sun) M=$(PWD) modules
-	cp ./rmc.ko ../bin/
+#	cp ./rmc.ko ./
 else
 	rmc-objs := main.o mr_alloc.o
 	obj-m := rmc.o  

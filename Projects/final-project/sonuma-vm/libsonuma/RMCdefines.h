@@ -37,6 +37,10 @@
 #define H_RMC_DEFINES
 
 #define MAX_NUM_WQ 64
+#define MAX_NUM_SRQ_SLOTS 256 // Msutherl: probably needs to be bigger
+
+#define RPC_DATA_PAYLOAD 4096
+#define MAX_RPC_BYTES (RPC_DATA_PAYLOAD)// + HEADER_DATA_BYTES)
 
 #define KAL_REG_WQ      1
 #define KAL_UNREG_WQ    6
@@ -46,41 +50,91 @@
 #define KAL_PIN         14
 
 #define PAGE_SIZE 4096
+#define MSGS_PER_PAIR 16
+
+#include <stdbool.h>
+
+#ifdef __cplusplus
+    #include <cstdint>
+#else
+    #include <stdint.h>
+#endif
+
 
 typedef struct wq_entry {
   uint8_t op;
   volatile uint8_t SR;
-  //set with a new WQ entry, unset when entry completed.
-  //Required for pipelining async ops.
+    //set with a new WQ entry, unset when entry completed.
+    //Required for pipelining async ops.
   volatile uint8_t valid;
   uint64_t buf_addr;
   uint64_t buf_offset;
-  uint8_t cid;
+  uint16_t cid;
   uint16_t nid;
   uint64_t offset;
   uint64_t length;
+  /* Msutherl: */
+    uint16_t slot_idx;
+    uint16_t qp_num_at_receiver;
+    bool send_qp_terminate;
+    bool dispatch_on_recv;
 } wq_entry_t;
 
 typedef struct cq_entry { 
   volatile uint8_t SR;
   volatile uint8_t tid;
+  /* Msutherl: */
+  uint16_t sending_nid;
+  uint16_t sending_qp;
+  uint64_t slot_idx;
+  uint64_t length;
+  bool is_nack;
 } cq_entry_t;
 
 typedef struct rmc_wq {
   wq_entry_t q[MAX_NUM_WQ];
   uint8_t head;
   volatile uint8_t SR;
+  volatile bool connected;
 } rmc_wq_t;
 
 typedef struct rmc_cq {
   cq_entry_t q[MAX_NUM_WQ];
   uint8_t tail;
   volatile uint8_t SR;
+  volatile bool connected;
 } rmc_cq_t;
 
 typedef struct qp_info {
   int node_cnt;
   int this_nid;
 } qp_info_t;
+
+typedef struct sslot {
+    volatile bool valid;
+    uint64_t msg_size;
+    uint16_t sending_qp;
+    uint16_t wq_entry_idx;
+} send_slot_t;
+
+/* Msutherl */
+typedef struct rpc_srq_entry {
+    // all metadata used for making the CQ entry later upon dispatch
+    volatile uint8_t tid;
+    uint16_t sending_nid;
+    uint16_t sending_qp;
+    uint64_t slot_idx;
+    uint64_t length;
+    bool valid;
+} rpc_srq_entry_t;
+
+/* Msutherl */
+typedef struct rpc_srq {
+    rpc_srq_entry_t q[MAX_NUM_SRQ_SLOTS];
+    // head-tail indices
+    uint16_t head, tail;
+    uint16_t dispatch_slot;
+    bool full;
+} rpc_srq_t; 
 
 #endif /* H_RMC_DEFINES */
