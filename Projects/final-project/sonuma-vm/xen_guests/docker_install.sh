@@ -10,10 +10,10 @@ apt-key fingerprint 0EBFCD88 | grep fingerprint | sed -n "s/.*\=\s*\([0-9]*[A-F]
 if [ $? -ne 0 ];
 then echo -e "\e[1;31m WARN: Key fingerprint from Docker did not match the validated online key...\n\tValidate them in \".KeyFprintDiff.out\"\e[0m";
 fi
-sudo add-apt-repository \
+add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
 apt-get update
-apt-get install docker-ce
+apt-get install docker.ce
 docker run hello-world
