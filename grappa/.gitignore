@@ -1,0 +1,102 @@
+*~
+*#
+*.cunroll
+*.o
+*.a
+*.d
+*.test
+*.exe
+*.dis
+.nfs*
+*.btr
+*.gch
+._*
+.DS_Store
+*/.gitignore
+*.db
+*.swp
+*.swo
+.mpirunrc.*
+*.pyc
+*.out
+*.ckpt
+ckpts
+*.nedge
+*.log*
+*.INFO
+*.ERROR
+*.FATAL
+*.WARNING
+.fuse_hidden*
+.srunrc*
+.sbatch.*
+*.d.tmp
+*.preproc
+
+# Tau/profiling
+tau*.trc
+*.edf
+profile.*.*.*
+app*.def
+*.otf
+*.vsettings
+app*.events
+fn_mappings
+reader.out
+*.filt
+*.uctl
+*.slog2
+
+core.*
+*.prof
+*.z
+
+doc/*/paper.pdf
+
+doc/*/revision.tex
+
+.svn
+
+# autoconf
+autom4te.cache
+config.status
+
+# google testing stuff
+*_unittest[0123456789]
+*_unittest
+*_unittest.sh
+*_test
+*_test.sh
+stamp-h1
+config.h
+
+# documentation
+/system/doxygen/*
+
+# stats output
+*stats.json
+
+# CMake
+/build
+*.cmake
+CMakeFiles/
+CMakeCache.txt
+
+# /scratch/*.cpp
+
+# scratch files
+/system/scratch/*
+/system/Scratch_tests.cpp
+
+# RDMA communication routing output
+/system/routing.dot
+/system/routing.pdf
+routing.dot
+
+#igor
+*.igor
+
+# Databases, R plotting
+*.sqlite
+.RData
+
