@@ -33,7 +33,7 @@ MODULENAME      := rmc
 
 #KDIR_sun	:= /lib/modules/$(shell uname -r)/build
 
-KDIR_sun	:= /home/cc/CS570-Adv-Comp-Arch/Projects/final-project/linux-4.12.1
+KDIR_sun	:= /root/CS570-Adv-Comp-Arch/Projects/final-project/linux-4.12.1
 
 ARCH_KDIR	:= $(KDIR_sun)/arch/x86/include/asm
 GEN_KDIR	:= $(KDIR_sum)/include
